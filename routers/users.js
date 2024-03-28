@@ -248,4 +248,113 @@ const router = require("express").Router()
 // })
 
 
+
+
+//! videos 6
+//! Match all and other operation
+
+// router.get("/", async (req, res) => {
+//     try {
+
+// //         //! 1. Who has register the most recently
+//         const users = await User.aggregate([
+//              {
+//                 $sort:{
+//                     registered:-1
+//                 }
+//              },
+//              {
+//                 $limit:4
+//              },
+//              {
+//                 $project:{
+//                     name:1,
+//                     registered:1,
+//                     favoriteFruit:1
+//                 }
+//              }
+//         ])
+
+// //         //! 2. Categories users name by their favorite fruit
+
+//         const users = await User.aggregate([
+//             {
+//                 $group:{
+//                     _id:"$favoriteFruit",
+//                     users:{$push:"$name"}
+//                 }
+//             },
+            
+             
+//         ])
+
+
+// //         //! 3. How many users have 'ad' as the second tag in their list of tags?
+
+//         const users = await User.aggregate([
+//              {
+//                 $match:{
+//                    "tags.1" : "ad"
+//                 }
+//              },
+
+//              {
+//                 $count:"userList"
+//              }
+
+            
+             
+//         ])
+
+
+// //         //! 4. Find users who have both 'enim' and 'id' as their tags ?
+
+//         const users = await User.aggregate([
+//              {
+//                 $match:{
+//                    tags:{$all : ["enim","id"]}
+//                 }
+//              },
+
+            
+            
+             
+//         ])
+
+
+// //         //! 5. List all the company located with title in usa with their corrosponsding user count ?
+
+//         const users = await User.aggregate([
+//             {
+//                $match:{
+//                   "company.location.country":"USA"
+                 
+//                }
+//             }  ,
+//             {
+//                 $group:{
+//                     _id:"$company.title",
+//                     userCount:{
+//                         $sum:1
+//                     }
+// ,                }
+//             }          
+            
+             
+//         ])
+
+
+//         return res.json({ length: users.length, users: users })
+
+
+//     } catch (error) {
+//         console.log('error', error)
+//     }
+// })
+
+
+
+
+
+
 module.exports = router
